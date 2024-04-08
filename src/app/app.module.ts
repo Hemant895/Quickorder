@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/pages/login/login.component';
 import { ErrorInterceptor, JwtInterceptor } from './_helpers';
+import { OrdersComponent } from './components/pages/orders/orders.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { ErrorInterceptor, JwtInterceptor } from './_helpers';
     TitleComponent,
     CheckoutPageComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

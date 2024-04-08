@@ -5,6 +5,8 @@ export const environment = {
   production: false,
   baseUrl: 'https://quickorder-backend.vercel.app/products',
   searchUrl:'https://quickorder-backend.vercel.app/products/search/searchTerm?searchTerm='
+  // baseUrl:'http://localhost:9000/products',
+  // searchUrl:'http://localhost:9000/products/search/searchTerm?searchTerm='
 };
 
 /*
