@@ -34,7 +34,7 @@ final:any
       },100)
     this.cartService.getCartObservable().subscribe((cart) => {
       this.cart  = cart;
-      console.log(this.cart);
+      // console.log(this.cart);
     })
     
    }
@@ -96,7 +96,7 @@ final:any
         this.data = res;
         this.ordersForm.reset();
         this.router.navigate(['/orders'])
-        console.log(this.data);
+        // console.log(this.data);
         
         localStorage.removeItem('Cart');
         // localStorage.setItem("data", JSON.stringify(this.data))
@@ -106,7 +106,7 @@ final:any
         // console.log( localStorage.getItem('token'));
       }
       else {
-        console.log(this.toastr.error(res.message));
+        // console.log(this.toastr.error(res.message));
         this.toastr.error()
       }
       },
@@ -118,7 +118,7 @@ final:any
 
 
    
-   console.log(ordersRequest);
+  //  console.log(ordersRequest);
   }
 
 }

@@ -68,13 +68,13 @@ export class LoginComponent implements OnInit {
         this.data = res;
         this.loginForm.reset();
         this.router.navigate(['/home'])
-        console.log(this.data);
+        // console.log(this.data);
         localStorage.setItem("sessionstorage", JSON.stringify( this.data))
         localStorage.setItem("data", JSON.stringify(this.data))
         localStorage.setItem("token", this.data.token)
         localStorage.setItem("username", this.data.username)
         localStorage.setItem("email", this.data.email)
-        console.log( localStorage.getItem('token'));
+        localStorage.getItem('token')
       }
       else {
         console.log(this.toastr.error(res.message));
