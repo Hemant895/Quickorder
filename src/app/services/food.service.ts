@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { FoodData } from '../_helpers/food.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +26,8 @@ export class FoodService {
   placeOrders(obj:any){
     return this.http.post('https://quickorder-backend.vercel.app/orders/placedorders',obj);
   }
+  getFoodOrders():Observable<FoodData> {
+    return this.http.get<FoodData>("https://quickorder-backend.vercel.app/orders/ordersapi")
+    }
   // sample_foods.filter((food)=>food.name.toLowerCase().includes(searchTerm.toLowerCase()));
 }

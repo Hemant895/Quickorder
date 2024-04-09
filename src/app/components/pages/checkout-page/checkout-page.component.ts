@@ -18,6 +18,7 @@ export class CheckoutPageComponent implements OnInit {
   submitted = false;
   show_button: Boolean = false;
   show_eye: Boolean = false;
+  email:any;
 test:any
 final:any
   cart!:cart;
@@ -49,7 +50,8 @@ final:any
 
        }),
     });
-   
+   this.email = localStorage.getItem('email')
+  
   }
 
   get f(): { [key: string]: AbstractControl } {
@@ -80,7 +82,7 @@ final:any
     }
     let ordersRequest: any = {
       data:this.cart,
-      email:this.ordersForm.value.email,
+      email: this.ordersForm.value.email,
       billingaddress:{
         street:billingAddressGroup.get('street')?.value ,
         zipcode: billingAddressGroup.get('zipcode')?.value,
@@ -88,12 +90,13 @@ final:any
        },
 
     };
-   
+   console.log(ordersRequest)
     this.foodorder.placeOrders(ordersRequest).subscribe({
       next: (res:any) => {
         if(res.success == true )
         {this.toastr.success("order sucessfully placed");
         this.data = res;
+        localStorage.setItem("orderemail", this.data.email)
         this.ordersForm.reset();
         this.router.navigate(['/orders'])
         // console.log(this.data);
@@ -104,10 +107,6 @@ final:any
         // localStorage.setItem("username", this.data.username)
         // localStorage.setItem("email", this.data.email)
         // console.log( localStorage.getItem('token'));
-      }
-      else {
-        // console.log(this.toastr.error(res.message));
-        this.toastr.error()
       }
       },
       error: (err:any) => {
